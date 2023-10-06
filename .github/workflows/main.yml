@@ -1,0 +1,52 @@
+
+name: SonarQube Analysis
+on:
+  push:
+    branches:
+      - main
+jobs:
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+      - name: Build React App
+        run: npm run build
+      - name: SonarQube Scan
+        run: |
+          npm install -g sonarqube-scanner
+          sonar-scanner \
+            -Dsonar.login=sqa_a84c4865517eb620835506a3702a61f9564028a9 \
+            -Dsonar.projectKey=sonar \
+            -Dsonar.projectName="sonar" \
+            -Dsonar.projectVersion=0.1.0 \
+            -Dsonar.sources=src \
+            -Dsonar.exclusions=**/__tests__/**,**/*.test.js \
+            -Dsonar.sourceEncoding=UTF-8 \
+            -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.eslint.reportPaths=eslint-report.json
+      - name: Publish SonarQube Analysis
+        run: |
+          npm install -g sonarqube-scanner
+          sonar-scanner \
+            -Dsonar.login= sqa_a84c4865517eb620835506a3702a61f9564028a9 \
+            -Dsonar.projectKey=sonar \
+            -Dsonar.projectName="sonar" \
+            -Dsonar.projectVersion=0.1.0 \
+            -Dsonar.sources=src \
+            -Dsonar.exclusions=**/__tests__/**,**/*.test.js \
+            -Dsonar.sourceEncoding=UTF-8 \
+            -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.eslint.reportPaths=eslint-report.json \
+            -Dsonar.host.url=http://localhost:9000
+      - name: Upload SonarQube Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: sonarqube-results
+          path: .scannerwork
