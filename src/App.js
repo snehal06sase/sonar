@@ -3,7 +3,6 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [state, setstate] = useState('SNEHAL');
 
   return (
     <div className="App">
@@ -20,7 +19,6 @@ function App() {
         >
           Learn React
         </a>
-        <div>{state}</div>
       </header>
     </div>
   );
