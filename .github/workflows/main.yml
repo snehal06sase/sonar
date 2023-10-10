@@ -24,7 +24,7 @@ jobs:
       - name: SonarQube Analysis
         run: |
           sonar-scanner \
-            -Dsonar.host.url=http://localhost:9000 \  # Adjust the URL if your SonarQube server is running on a different port or host
-            -Dsonar.login=sqa_c252c3aea72574b6e6bca0436be27ba113970124 \   # Replace with your SonarQube authentication token
-            -X  # Add this flag for debug output (optional)
+            -Dsonar.host.url=http://localhost:9000 \ 
+            -Dsonar.login=sqa_c252c3aea72574b6e6bca0436be27ba113970124 \ 
+            -X 
 
