@@ -3,8 +3,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [state, setstate] = useState();
-  
+  const [state, setstate] = useState('SNEHAL');
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <div>{state}</div>
       </header>
     </div>
   );
