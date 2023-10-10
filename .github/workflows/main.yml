@@ -22,7 +22,7 @@ jobs:
         run: |
           npm install -g sonarqube-scanner
           sonar-scanner \
-            -Dsonar.login=sqa_db291bac5cbc7b72fb6ff3f64364034bbcbd3234 \
+            -Dsonar.login=sqa_c252c3aea72574b6e6bca0436be27ba113970124 \
             -Dsonar.projectKey=sonar \
             -Dsonar.projectName="sonar" \
             -Dsonar.projectVersion=0.1.0 \
@@ -35,7 +35,7 @@ jobs:
         run: |
           npm install -g sonarqube-scanner
           sonar-scanner \
-            -Dsonar.login= sqa_db291bac5cbc7b72fb6ff3f64364034bbcbd3234 \
+            -Dsonar.login= sqa_c252c3aea72574b6e6bca0436be27ba113970124 \
             -Dsonar.projectKey=sonar \
             -Dsonar.projectName="sonar" \
             -Dsonar.projectVersion=0.1.0 \
